@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Funerals.Views.PackagePage"
+             Title="Paquetes"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+    <Grid RowDefinitions=".1*, .9*">
+        <VerticalStackLayout Spacing="10">
+            <Grid Margin="40,15,0,0" ColumnDefinitions=".9*, .1*">
+                <Border Padding="0" StrokeShape="RoundRectangle 8,8,8,8">
+                    <Grid ColumnDefinitions=".1*, .9*" BackgroundColor="White">
+                        <Image Source="magnifying_glass.svg"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               WidthRequest="20">
+                        </Image>
+                        <Entry Grid.Column="1"
+                           Placeholder="Buscar"
+                           
+                           PlaceholderColor="#052d43"
+                           TextColor="#052d43" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+        <Grid Grid.Row="1">
+            <RoundRectangle BackgroundColor="White"/>
+            <CollectionView ItemsSource="{Binding Packages}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="20,2,20,10" HeightRequest="350"
+                              RowDefinitions=".6*, .4*">
+                            <Grid.Shadow>
+                                <Shadow Brush="#88775D"
+                                            Offset="20, 20"
+                                            Opacity="0.8"/>
+                            </Grid.Shadow>
+                            <RoundRectangle Grid.RowSpan="2"
+                                            BackgroundColor="White"
+                                            >
+                            </RoundRectangle>
+                            <Grid ColumnDefinitions=".4*,.2*,.4*"
+                                  RowDefinitions=".6*,.4*">
+                                <Image Grid.RowSpan="2"
+                                         Grid.ColumnSpan="3"
+                                         Aspect="AspectFill"
+                                         Source="{Binding Image}"/>
+
+                            </Grid>
+                            <Grid Grid.Row="1"  ColumnDefinitions="*,*,*"
+                                  RowDefinitions="35,*">
+                                <Label Grid.Row="0"
+                                    Grid.ColumnSpan="3"
+                                       Padding="15,12,0,0"
+                                       FontSize="16"
+                                       FontFamily="Roboto"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Start"
+                                       Text="{Binding Title}"
+                                       TextColor="#88775D"/>
+                                <Label Grid.Row="1"
+                                       FontSize="18"
+                                       TextColor="#052d43"
+                                       FontAttributes="Bold"
+                                       Padding="15,0,15,0"
+                                       Grid.ColumnSpan="3"
+                                       HorizontalTextAlignment="Start"
+                                       Text="{Binding Description}"/>
+
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+
+</ContentPage>

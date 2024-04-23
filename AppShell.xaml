@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Funerals.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Funerals"
+    xmlns:controls="clr-namespace:Funerals.Controls"
+    xmlns:views="clr-namespace:Funerals.Views"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    BackgroundColor="White">
+
+    
+    
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#455A64" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="#052d43" />
+            <Setter Property="Shell.TitleColor"
+                    Value="#052d43" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#052d43" />
+        </Style>
+        <Style TargetType="ShellItem"
+               BasedOn="{StaticResource BaseStyle}" />
+        
+        <Style x:Key="ProductShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+
+        </Style>
+        <Style x:Key="FuneralShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+        <Style x:Key="AboutShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+
+        </Style>
+        <Style x:Key="PoliceShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+
+        </Style>
+        <Style x:Key="HelpShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+        <Style x:Key="HomeShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+        <Style x:Key="PackageShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+        <Style x:Key="ServiceShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+        <Style x:Key="InfoShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+        <Style x:Key="ShopShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="White" />
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <controls:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+
+
+    <ShellContent Route="Home"
+                  Title="Inicio"
+                  Style="{StaticResource HomeShell}"
+                  Icon="house_chimney.svg"
+                  ContentTemplate="{DataTemplate views:HomePage}" />
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Cuenta"
+             Style="{StaticResource InfoShell}"
+             Icon="person_circle.svg">
+                <ShellContent Title="Información Personal"
+                              Icon="user.svg"
+                              ContentTemplate="{DataTemplate views:InfoPage}" />
+                <ShellContent Title="Compras"
+                              Icon="cart_shopping.svg"
+                              ContentTemplate="{DataTemplate views:ShopPage}" />
+            </Tab>
+    </FlyoutItem>
+
+    <ShellContent Route="Package"
+                  Title="Paquetes"
+                  Style="{StaticResource PackageShell}"
+                  Icon="boxes_stacked.svg"
+                  ContentTemplate="{DataTemplate views:PackagePage}" />
+
+    <ShellContent Route="Products"
+                  Title="Servicios"
+                  Style="{StaticResource ServiceShell}"
+                  Icon="handshake_simple.svg"
+                  ContentTemplate="{DataTemplate views:ServicePage}" />
+    
+    <ShellContent Route="Help"
+                  Style="{StaticResource HelpShell}"
+                  Title="Ayuda/FAQ"
+                  Icon="circle_question.svg"
+                  ContentTemplate="{DataTemplate views:HelpPage}" />
+
+    <ShellContent Route="Policie"
+                  Style="{StaticResource PoliceShell}"
+                  Title="Planes"
+                  Icon="list_check.svg"
+                  ContentTemplate="{DataTemplate views:PoliciePage}" />
+
+
+    <ShellContent Route="Product"
+                  Style="{StaticResource ProductShell}"
+                  Title="Productos previos a la necesidad"
+                  Icon="briefcase_medical.svg"
+                  ContentTemplate="{DataTemplate views:ProductPage}" />
+    
+    <ShellContent Route="Funeral"
+                  Style="{StaticResource FuneralShell}"
+                  Title="Que hacer cuando alguien muere: lista de verificación para el funeral"
+                  Icon="file_check.svg"
+                  ContentTemplate="{DataTemplate views:FuneralPage}" />
+    
+
+
+
+
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.2*,0.8*" Margin="2">
+                <Image Source="{Binding FlyoutIcon}"
+                       HeightRequest="30"
+                       Margin="5"
+                       WidthRequest="30"/>
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontSize="19"
+                       FontAttributes="Bold"
+                       TextColor="#052d43"
+                       Margin="5"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    
+
+
+</Shell>

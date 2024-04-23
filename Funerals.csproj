@@ -1,0 +1,187 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>Funerals</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>Funerals</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.funerals</ApplicationId>
+		<ApplicationIdGuid>05246ce6-d717-48a4-bfa3-b806fe794149</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\pigeon_yellow.png" Color="White" ForegroundScale="0.65" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\pigeon_yellow_2.png" Color="White" BaseSize="128,128" />		
+
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\AppIcon\pigeon_yellow.png" />
+	  <None Remove="Resources\Fonts\FontAwesome.otf" />
+	  <None Remove="Resources\Fonts\Roboto-Medium.ttf" />
+	  <None Remove="Resources\Images\account.jpg" />
+	  <None Remove="Resources\Images\ancient_member.jpg" />
+	  <None Remove="Resources\Images\angle_down.svg" />
+	  <None Remove="Resources\Images\available_location.jpg" />
+	  <None Remove="Resources\Images\better_better.jpg" />
+	  <None Remove="Resources\Images\better_funeral.jpg" />
+	  <None Remove="Resources\Images\book_flowers.jpg" />
+	  <None Remove="Resources\Images\book_funeral.jpg" />
+	  <None Remove="Resources\Images\box.svg" />
+	  <None Remove="Resources\Images\boxes_stacked.svg" />
+	  <None Remove="Resources\Images\breathe.jpg" />
+	  <None Remove="Resources\Images\briefcase_medical.svg" />
+	  <None Remove="Resources\Images\cart_shopping.svg" />
+	  <None Remove="Resources\Images\cash_delivery.jpg" />
+	  <None Remove="Resources\Images\checklist.jpg" />
+	  <None Remove="Resources\Images\check_progress.jpeg" />
+	  <None Remove="Resources\Images\choose.png" />
+	  <None Remove="Resources\Images\church.jpg" />
+	  <None Remove="Resources\Images\circle_question.svg" />
+	  <None Remove="Resources\Images\coffin.jpg" />
+	  <None Remove="Resources\Images\collection.jpg" />
+	  <None Remove="Resources\Images\cremation.jpg" />
+	  <None Remove="Resources\Images\custom_cremation.jpg" />
+	  <None Remove="Resources\Images\envase_cremacion.jpg" />
+	  <None Remove="Resources\Images\estates.jpg" />
+	  <None Remove="Resources\Images\extended_family.jpg" />
+	  <None Remove="Resources\Images\family_happy.jpg" />
+	  <None Remove="Resources\Images\family_member.jpg" />
+	  <None Remove="Resources\Images\fhoto_video.jpg" />
+	  <None Remove="Resources\Images\file_check.svg" />
+	  <None Remove="Resources\Images\flower_gold.jpg" />
+	  <None Remove="Resources\Images\flower_platinum.jpg" />
+	  <None Remove="Resources\Images\flower_silver.jpg" />
+	  <None Remove="Resources\Images\flower_white.jpg" />
+	  <None Remove="Resources\Images\full_cremation.jpg" />
+	  <None Remove="Resources\Images\funeral_custom.jpg" />
+	  <None Remove="Resources\Images\funeral_package.jpg" />
+	  <None Remove="Resources\Images\funeral_policies.jpg" />
+	  <None Remove="Resources\Images\funeral_service.jpg" />
+	  <None Remove="Resources\Images\gold_tree.jpeg" />
+	  <None Remove="Resources\Images\handshake_simple.svg" />
+	  <None Remove="Resources\Images\help_faq.jpg" />
+	  <None Remove="Resources\Images\house_chimney.svg" />
+	  <None Remove="Resources\Images\image_1.png" />
+	  <None Remove="Resources\Images\image_2.jpg" />
+	  <None Remove="Resources\Images\landmark_dome.svg" />
+	  <None Remove="Resources\Images\less.jpg" />
+	  <None Remove="Resources\Images\list_check.svg" />
+	  <None Remove="Resources\Images\magnifying_glass.svg" />
+	  <None Remove="Resources\Images\member_member.jpg" />
+	  <None Remove="Resources\Images\memorials.jpg" />
+	  <None Remove="Resources\Images\mental_health.jpg" />
+	  <None Remove="Resources\Images\more_expensive.jpg" />
+	  <None Remove="Resources\Images\notification.jpg" />
+	  <None Remove="Resources\Images\package_funeral.jpg" />
+	  <None Remove="Resources\Images\panic_button.jpeg" />
+	  <None Remove="Resources\Images\person_circle.svg" />
+	  <None Remove="Resources\Images\pickup.jpg" />
+	  <None Remove="Resources\Images\pickup_deceased.jpg" />
+	  <None Remove="Resources\Images\pigeon_blue.png" />
+	  <None Remove="Resources\Images\pigeon_blue_light.png" />
+	  <None Remove="Resources\Images\pigeon_yellow.png" />
+	  <None Remove="Resources\Images\pigeon_yellow_1.png" />
+	  <None Remove="Resources\Images\post_ancient_member.jpg" />
+	  <None Remove="Resources\Images\pre_plan.jpg" />
+	  <None Remove="Resources\Images\pvt.jpg" />
+	  <None Remove="Resources\Images\reliable_providers.jpg" />
+	  <None Remove="Resources\Images\repatriations.jpg" />
+	  <None Remove="Resources\Images\rose_white.jpg" />
+	  <None Remove="Resources\Images\single_member.png" />
+	  <None Remove="Resources\Images\start.jpeg" />
+	  <None Remove="Resources\Images\tombstones.jpeg" />
+	  <None Remove="Resources\Images\top_plan.jpg" />
+	  <None Remove="Resources\Images\transportation.jpg" />
+	  <None Remove="Resources\Images\urn.jpeg" />
+	  <None Remove="Resources\Images\user.svg" />
+	  <None Remove="Resources\Images\use_aplication.jpg" />
+	  <None Remove="Resources\Splash\pigeon_yellow.png" />
+	  <None Remove="Resources\Splash\pigeon_yellow_2.png" />
+	  <None Remove="Resources\Splash\splash_pigeon.png" />
+	</ItemGroup>
+
+
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Controls\FlyoutFooter.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\FlyoutHeader.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\TabbarPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FuneralPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\HelpPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InfoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PackagePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PoliciePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ServicePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ShopPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Model\" />
+	</ItemGroup>
+
+</Project>
